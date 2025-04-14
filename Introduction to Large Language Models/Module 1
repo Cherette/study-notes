@@ -1,0 +1,83 @@
+What are LLMs?
+   Large Language Models (LLM) are a subset of Deep Learning.
+   Definition: They refer to large, general-purpose language models that can be pre-trained and then
+fine-tuned for specific purposes.
+
+Their functions:
+   LLMs are trained to solve common language problems. E.g., text classification,
+question answering, document summarization, and text generation.
+
+Explaining definition:
+   Large: (1) large training dataset; (2) large number of parameters
+   General purpose: (1) Commonality of human languages; (2) Resource restriction
+   Pre-trained and fine-tuned: pre-train a LLM for a general purpose with large dataset,
+and then fine-tune it for specific aims with a much smaller dataset.
+
+LLM's benefits:
+   (1) A single model can be used for different tasks.
+   (2) LLMs obtain decent performance even with little domain training data.
+       They can be used for few-shot or even zero-shot scenarios.
+      (few-shot: training a model with minimal data;
+       zero-shot: a model can recognize things that have not explicitly been taught in the training before.)
+   (3) The performance of LLMs is continuously growing when you add more data and parameters.
+
+LLM development vs traditional development
+   LLM development (using pre-trained APIs):           Traditional ML development:
+   (1) No ML expertise needed                          (1) ML expertise needed
+   (2) No training examples                            (2) training examples needed
+   (3) No need to train a model                        (3) need to train a model
+   (4) Thinks about prompt design                      (4) compute time + hardware
+                                                       (5) thinks about minimizing a loss function
+
+An example case: QA
+   Question Answering (QA) is a subfield of Natural Language Processing that deals with the task of 
+automatically answering questions posed in natural language.
+   QA systems are able to answer a wide range of questions, including factual, definitional, 
+and opinion-based questions.
+   Some QA requires specific domain knowledge. Using Generative QA, the model generates free texts
+directly based on the context. There is no need for domain knowledge.
+
+Prompt design:  (more general)                            Prompt engineering: (more specialized)
+   the process of creating a prompt                       the process of creating a prompt that is
+that is tailored to the specific task                  designed to improve performance
+that the system is being asked to perform 
+   essential                                               only necessary for systems that require a
+                                                       high degree of accuract or performance
+
+
+3 types of LLMs:
+   (1) generic/raw language models: predict the next word (technically, token) based on the language
+in the training data.
+   (2) instruction-tuned models: trained to predict a response to the instruction given the input.
+   (3) dialog-tuned models: trained to have a dialog by predicting the next response.
+       Dialog-tuned models are a special case of instruction tuned where requests are typically 
+framed as a question to a chatbot.
+       Dialog tuning is a further specialization of instruction tuning that is expected to be 
+in the context of a longer back-and-forth conversation, and typically works better with 
+natural question-like phrasings. 
+
+Chain-of-thought reasoning:
+    Models are better at getting the right answer when they first output text that explains 
+the reason for the answer. 
+
+Vertex AI provides task-specific foundation models.
+E.g., Language: Extraction: syntax analysis
+                Classification: entity analysis, content classification, sentiment analysis...
+      Vision: Classification: object detector
+              Detection: occupancy analytics, person/vehicle detector, PPE detector
+
+Tuning
+    Tuning a model enables you to customize the model response based on the examples of tasks
+that you want the model to perform. It is the process of adapting a model to a new domain 
+or set of custom use cases by training the model on new data.
+
+Fine-tuning
+    Bring your own dataset and retrain the model by tuning every weight in the LLM.
+
+More efficient methods of tuning:
+(1) Parameter-efficient tuning methods (PETM)
+    Methods for tuning an LLM on your own custom data without duplicating the model.
+The basic model is not altered. Instead, a small number of add-on layers are tuned, 
+which can be swapped in and out at inference time.
+(2) Prompt tuning
+    One of the easiest parameter-efficient tuning methods
